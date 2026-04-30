@@ -1,0 +1,165 @@
+PS C:\Users\joelk\Desktop\give-to-gain> cat > .gitignore << 'EOF'
+>> .DS_Store
+>> node_modules/
+>> .vscode/
+>> *.log
+>> .env
+>> EOF
+At line:1 char:19
++                   ~
+Missing file specification after redirection operator.
+At line:1 char:18
++ cat > .gitignore << 'EOF'
++                  ~
+The '<' operator is reserved for future use.
+At line:1 char:19
++ cat > .gitignore << 'EOF'
++                   ~
+The '<' operator is reserved for future use.
+PS C:\Users\joelk\Desktop\give-to-gain> git add .
+On branch master
+
+No commits yet
+
+Changes to be committed:
+        new file:   .gitignore
+        new file:   README.md
+        new file:   assets/logo.png
+        new file:   css/style.css
+        new file:   favicon.svg
+        new file:   index.html
+        new file:   js/main.js
+        new file:   sw.js
+
+PS C:\Users\joelk\Desktop\give-to-gain> git commit -m "Initial commit: Give to Gain - KUHeS Church 2025 landing page
+>> 
+ 8 files changed, 2330 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 assets/logo.png
+ create mode 100644 favicon.svg
+ create mode 100644 index.html
+ create mode 100644 js/main.js
+ create mode 100644 sw.js
+PS C:\Users\joelk\Desktop\give-to-gain> git remote add origin https://github.com/joelkaudzu9-ship-it/give-to-gain.gi
+PS C:\Users\joelk\Desktop\give-to-gain> git branch -M main
+PS C:\Users\joelk\Desktop\give-to-gain> 
+PS C:\Users\joelk\Desktop\give-to-gain> git push -u origin main
+>> 
+PS C:\Users\joelk\Desktop\give-to-gain> ping github.com
+
+Pinging github.com [20.87.245.0] with 32 bytes of data:
+Reply from 20.87.245.0: bytes=32 time=83ms TTL=114
+Reply from 20.87.245.0: bytes=32 time=67ms TTL=114
+Reply from 20.87.245.0: bytes=32 time=59ms TTL=114
+Reply from 20.87.245.0: bytes=32 time=223ms TTL=114
+
+Ping statistics for 20.87.245.0:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 59ms, Maximum = 223ms, Average = 108ms
+PS C:\Users\joelk\Desktop\give-to-gain> ipconfig /flushdns
+
+Windows IP Configuration
+
+Successfully flushed the DNS Resolver Cache.
+PS C:\Users\joelk\Desktop\give-to-gain> git push -u origin main
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (13/13), 197.67 KiB | 1.96 MiB/s, done.
+Total 13 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/joelkaudzu9-ship-it/give-to-gain.git
+ * [new branch]      main -> main
+PS C:\Users\joelk\Desktop\give-to-gain> netlify deploy --prod --dir=.
+Logging into your Netlify account...
+Opening https://app.netlify.com/authorize?response_type=ticket&ticket=ddde80d20b28efad87902cbc283c8a8f
+
+To request authorization from a human, run: netlify login --request "<msg>"
+
+
+You are now logged into your Netlify account!
+
+Run netlify status for account details
+To see all available commands run: netlify help
+
+This folder isn't linked to a project yet
+
+To create and deploy in one go, use: netlify deploy --site <SITE> --dir . --prod
+? What would you like to do? ⇄  Link this directory to an existing project
+
+Adding local .netlify folder to .gitignore file...
+
+netlify link will connect this folder to a project on Netlify
+
+? How do you want to link this folder to a project? Use current git remote origin 
+(https://github.com/joelkaudzu9-ship-it/give-to-gain)
+
+✖ Looking for projects connected to 'https://github.com/joelkaudzu9-ship-it/give-to-gain'
+ »   Error: You don't have any projects yet. Run netlify sites:create to create a project.
+PS C:\Users\joelk\Desktop\give-to-gain> netlify sites:create
+? Team: joelkaudzu9-ship-it’s team
+? Project name (leave blank for a random name; you can change it later): give-to-gain
+
+Project Created
+
+Admin URL:  https://app.netlify.com/projects/give-to-gain
+URL:        https://give-to-gain.netlify.app
+Project ID: 4bac4aca-24c5-4d4f-86ec-6a6299fa2677
+
+✔ Linked to give-to-gain
+PS C:\Users\joelk\Desktop\give-to-gain> netlify deploy --prod --dir=.
+
+Netlify Build                                                 
+────────────────────────────────────────────────────────────────
+
+❯ Version
+  @netlify/build 35.13.4
+
+❯ Flags
+  accountId: 69f3541ac105244ac86ae3e3
+  deployId: 69f35576987123753a0d2c09
+
+❯ Current directory
+  C:\Users\joelk\Desktop\give-to-gain
+
+❯ Config file
+  C:\Users\joelk\Desktop\give-to-gain\netlify.toml
+
+❯ Context
+  production
+
+Deploying to Netlify
+────────────────────────────────────────────────────────────────
+
+Deploy path:        C:\Users\joelk\Desktop\give-to-gain
+Configuration path: C:\Users\joelk\Desktop\give-to-gain\netlify.toml
+
+✔ Finished uploading blobs to deploy store
+✔ No cached functions were found
+✔ Finished hashing 
+✔ CDN requesting 10 files
+✔ Finished uploading 10 assets
+✔ Deploy is live!
+
+Netlify Build Complete                                        
+────────────────────────────────────────────────────────────────
+
+(Netlify Build completed in 14.6s)
+
+🚀 Deploy complete
+────────────────────────────────────────────────────────────────
+
+   ╭─────────────────────────── ⬥  Production deploy is live ⬥  ───────────────────────────╮
+   │                                                                                       │
+   │             Deployed to production URL: https://give-to-gain.netlify.app              │
+   │                                                                                       │
+   │       Unique deploy URL: https://69f35576987123753a0d2c09--give-to-gain.netlify.app   │
+   │                                                                                       │
+   ╰───────────────────────────────────────────────────────────────────────────────────────╯
+
+Build logs:         https://app.netlify.com/projects/give-to-gain/deploys/69f35576987123753a0d2c09
+Function logs:      https://app.netlify.com/projects/give-to-gain/logs/functions
+Edge function Logs: https://app.netlify.com/projects/give-to-gain/logs/edge-functions
+PS C:\Users\joelk\Desktop\give-to-gain> 

@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Give to Gain — KUHeS Church 2025. Help us create a warm, impactful first experience for every student walking through KUHeS this year.">
     
     <!-- Open Graph / Social Preview -->
     <meta property="og:title" content="Give to Gain — KUHeS Church 2025">
     <meta property="og:description" content="Two events. One mission. Countless lives touched. Give what lifts your heart.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://your-domain.com/assets/og-image.jpg">
+    <meta property="og:image" content="https://give-to-gain.netlify.app/assets/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Give to Gain - KUHeS Church 2025 campaign">
     <meta property="og:site_name" content="KUHeS Church">
     <meta property="og:locale" content="en_MW">
     
-    <!-- Twitter Card (for Twitter/X previews) -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Give to Gain — KUHeS Church 2025">
     <meta name="twitter:description" content="Two events. One mission. Countless lives touched. Give what lifts your heart.">
-    <meta name="twitter:image" content="https://your-domain.com/assets/og-image.jpg">
+    <meta name="twitter:image" content="https://give-to-gain.netlify.app/assets/og-image.jpg">
     <meta name="twitter:image:alt" content="Give to Gain - KUHeS Church 2025 campaign">
     
     <meta name="theme-color" content="#0f0f14">
@@ -35,24 +35,45 @@
     <!-- Particle Canvas -->
     <canvas id="particleCanvas"></canvas>
 
+    <!-- Hero Background Image (faded) -->
+    <div class="hero-bg-image" id="heroBgImage"></div>
+
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" id="navbar">
         <div class="nav-inner">
-            <div class="nav-logo">
+            <a href="#hero" class="nav-logo">
                 <img src="assets/logo.png" alt="KUHeS Church" class="logo-img">
-            </div>
-            <div class="nav-links">
+            </a>
+            <div class="nav-links" id="navLinks">
                 <a href="#need">The Need</a>
                 <a href="#give">Give</a>
                 <a href="#details">Send</a>
+                <a href="#promise">Promise</a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Menu">
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- Scroll Down Button (Hero) -->
+    <a href="#need" class="scroll-down-btn" id="scrollDownBtn" aria-label="Scroll down">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"/>
+        </svg>
+    </a>
 
     <!-- SECTION 1: HERO -->
     <section class="hero" id="hero">
@@ -79,10 +100,6 @@
                     </svg>
                 </a>
             </div>
-        </div>
-        <div class="hero-scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
         </div>
     </section>
 
@@ -144,7 +161,7 @@
         </div>
     </section>
 
-    <!-- SECTION 3: YOUR PART — THE HUMBLE ASK -->
+    <!-- SECTION 3: YOUR PART -->
     <section class="give" id="give">
         <div class="section-header reveal">
             <h2 class="section-title">You Decide The Target</h2>
@@ -167,12 +184,10 @@
                     <label for="customAmount">Or enter any amount that lifts your heart:</label>
                     <div class="amount-input-wrapper">
                         <span class="currency">K</span>
-                        <input type="number" id="customAmount" placeholder="Enter amount" min="0" step="any">
+                        <input type="number" id="customAmount" placeholder="Enter amount" min="0" step="any" inputmode="numeric">
                     </div>
                 </div>
-                <div class="amount-confirmation" id="amountConfirmation">
-                    <!-- Dynamic confirmation message appears here -->
-                </div>
+                <div class="amount-confirmation" id="amountConfirmation"></div>
             </div>
         </div>
         <div class="give-scroll-to-details reveal">
@@ -185,14 +200,13 @@
         </div>
     </section>
 
-    <!-- SECTION 4: THE DETAILS — WHERE TO SEND -->
+    <!-- SECTION 4: THE DETAILS -->
     <section class="details" id="details">
         <div class="section-header reveal">
             <h2 class="section-title">Send Your Gift Here</h2>
         </div>
         <div class="details-grid">
-            <!-- Standard Bank -->
-            <div class="detail-card reveal" data-bank="standard">
+            <div class="detail-card reveal">
                 <div class="bank-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="5" width="20" height="14" rx="2"/>
@@ -212,9 +226,7 @@
                     </button>
                 </div>
             </div>
-
-            <!-- National Bank -->
-            <div class="detail-card reveal" data-bank="national">
+            <div class="detail-card reveal">
                 <div class="bank-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="5" width="20" height="14" rx="2"/>
@@ -234,9 +246,7 @@
                     </button>
                 </div>
             </div>
-
-            <!-- FCB -->
-            <div class="detail-card reveal" data-bank="fcb">
+            <div class="detail-card reveal">
                 <div class="bank-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="5" width="20" height="14" rx="2"/>
@@ -256,9 +266,7 @@
                     </button>
                 </div>
             </div>
-
-            <!-- Airtel Money -->
-            <div class="detail-card reveal" data-bank="airtel">
+            <div class="detail-card reveal">
                 <div class="bank-icon mobile-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
@@ -278,9 +286,7 @@
                     </button>
                 </div>
             </div>
-
-            <!-- TNM Mpamba -->
-            <div class="detail-card reveal" data-bank="tnm">
+            <div class="detail-card reveal">
                 <div class="bank-icon mobile-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
@@ -311,38 +317,19 @@
     <section class="promise" id="promise">
         <div class="promise-inner reveal">
             <h2 class="promise-title">Why We Call It <em>Give to Gain</em></h2>
-            <p class="promise-body">
-                This isn't a transaction. It's a seed.
-            </p>
-            <p class="promise-body">
-                When you give into this work, you're not funding an event — you're funding an encounter. You're standing in the gap for a student whose life is about to pivot toward purpose.
-            </p>
+            <p class="promise-body">This isn't a transaction. It's a seed.</p>
+            <p class="promise-body">When you give into this work, you're not funding an event — you're funding an encounter. You're standing in the gap for a student whose life is about to pivot toward purpose.</p>
             <div class="scripture">
-                <p class="scripture-text">
-                    "Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap."
-                </p>
+                <p class="scripture-text">"Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap."</p>
                 <p class="scripture-ref">— Luke 6:38</p>
             </div>
-            <p class="promise-body">
-                We believe that promise still works. As you sow into these students, God is sowing into your own story — your peace, your provision, your place in His plan.
-            </p>
+            <p class="promise-body">We believe that promise still works. As you sow into these students, God is sowing into your own story — your peace, your provision, your place in His plan.</p>
             <div class="promise-gains">
-                <div class="gain-item">
-                    <span class="gain-icon">🕊️</span>
-                    <span>Joy — you made someone's first day feel like home</span>
-                </div>
-                <div class="gain-item">
-                    <span class="gain-icon">🏥</span>
-                    <span>Legacy — you invested in a healthcare professional who will carry the light into Malawi's hospitals</span>
-                </div>
-                <div class="gain-item">
-                    <span class="gain-icon">🌾</span>
-                    <span>Harvest — no seed planted in faith returns empty</span>
-                </div>
+                <div class="gain-item"><span class="gain-icon">🕊️</span><span>Joy — you made someone's first day feel like home</span></div>
+                <div class="gain-item"><span class="gain-icon">🏥</span><span>Legacy — you invested in a healthcare professional who will carry the light into Malawi's hospitals</span></div>
+                <div class="gain-item"><span class="gain-icon">🌾</span><span>Harvest — no seed planted in faith returns empty</span></div>
             </div>
-            <p class="promise-tagline">
-                <strong>Give to Gain.</strong> It's not a slogan. It's a kingdom principle.
-            </p>
+            <p class="promise-tagline"><strong>Give to Gain.</strong> It's not a slogan. It's a kingdom principle.</p>
         </div>
     </section>
 
@@ -352,15 +339,11 @@
             <div class="footer-logo">
                 <img src="assets/logo.png" alt="KUHeS Church" class="logo-img">
             </div>
-            <p class="footer-endorsement">
-                This campaign is run by the KUHeS Church community, under the leadership of our chaplaincy and student body. Every Kwacha is accounted for, stewarded with integrity, and poured directly into these events.
-            </p>
+            <p class="footer-endorsement">This campaign is run by the KUHeS Church community, under the leadership of our chaplaincy and student body. Every Kwacha is accounted for, stewarded with integrity, and poured directly into these events.</p>
             <div class="footer-links">
                 <span>For questions or to give in person, reach us at <a href="tel:+265987005744">+265 987 005 744</a></span>
             </div>
-            <p class="footer-credit">
-                Site crafted by a member of the body — skills offered as worship. <em>Soli Deo gloria.</em>
-            </p>
+            <p class="footer-credit">Site crafted by Canvas team — skills offered as worship. <em>Soli Deo gloria.</em></p>
         </div>
     </footer>
 
