@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0a0f"/>
       <stop offset="100%" style="stop-color:#14141a"/>
     </linearGradient>
-    <linearGradient id="flame" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="flameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#F97316"/>
       <stop offset="50%" style="stop-color:#EF4444"/>
       <stop offset="100%" style="stop-color:#FACC15"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="600" cy="240" r="70" fill="none" stroke="url(#flame)" stroke-width="3" opacity="0.4"/>
-  <path d="M600 150 C582 200, 564 220, 564 260 C564 288, 580 305, 600 305 C620 305, 636 288, 636 260 C636 220, 618 200, 600 150Z" fill="url(#flame)" opacity="0.85"/>
-  <line x1="600" y1="100" x2="600" y2="390" stroke="url(#flame)" stroke-width="2" opacity="0.25"/>
-  <line x1="480" y1="240" x2="720" y2="240" stroke="url(#flame)" stroke-width="2" opacity="0.25"/>
-  <text x="600" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="64" font-weight="bold" fill="url(#flame)">Give to Gain</text>
-  <text x="600" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#b0b0b8">KUHeS Church 2025</text>
-  <text x="600" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#6b6b78">Doors Open 16th June · Two Events · One Mission</text>
-  <text x="600" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#6b6b78">Give what lifts your heart.</text>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <circle cx="600" cy="230" r="75" fill="none" stroke="url(#flameGrad)" stroke-width="3" opacity="0.4"/>
+  <path d="M600 140 C580 195, 562 215, 562 255 C562 285, 578 303, 600 303 C622 303, 638 285, 638 255 C638 215, 620 195, 600 140Z" fill="url(#flameGrad)" opacity="0.9"/>
+  <line x1="600" y1="90" x2="600" y2="395" stroke="url(#flameGrad)" stroke-width="2.5" opacity="0.2"/>
+  <line x1="470" y1="230" x2="730" y2="230" stroke="url(#flameGrad)" stroke-width="2.5" opacity="0.2"/>
+  <text x="600" y="415" text-anchor="middle" font-family="Georgia, serif" font-size="68" font-weight="bold" fill="url(#flameGrad)">Give to Gain</text>
+  <text x="600" y="468" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#b0b0b8" font-weight="500">KUHeS Church 2025</text>
+  <text x="600" y="518" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#6b6b78">Doors Open 16th June  ·  Two Events  ·  One Mission</text>
+  <text x="600" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#6b6b78" font-style="italic">Give what lifts your heart.</text>
 </svg>

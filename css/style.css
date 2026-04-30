@@ -1084,6 +1084,123 @@ section {
     color: var(--text-secondary);
 }
 
+/* --- INVITE SECTION --- */
+.invite {
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.invite::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.3), transparent);
+}
+
+.invite-inner {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.invite-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--gradient-flame-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    color: var(--flame-gold);
+    border: 1px solid rgba(250, 204, 21, 0.15);
+}
+
+.invite-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.invite-body {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+}
+
+.invite-body-secondary {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 2.5rem;
+}
+
+.invite-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.share-btn,
+.copy-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.75rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-bounce);
+    font-family: var(--font-sans);
+    border: none;
+}
+
+.share-btn {
+    background: var(--gradient-flame);
+    color: #0a0a0f;
+    box-shadow: var(--shadow-glow);
+}
+
+.share-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(249, 115, 22, 0.35), 0 0 90px rgba(249, 115, 22, 0.1);
+}
+
+.copy-link-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.copy-link-btn:hover {
+    border-color: var(--flame-orange);
+    background: rgba(249, 115, 22, 0.05);
+    transform: scale(1.03);
+}
+
+.share-btn svg,
+.copy-link-btn svg {
+    flex-shrink: 0;
+}
+
+.invite-confirmation {
+    min-height: 28px;
+    font-size: 0.9rem;
+    color: var(--flame-gold);
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     section {

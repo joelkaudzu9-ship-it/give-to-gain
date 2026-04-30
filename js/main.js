@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
     initScrollDownButton();
     initAmountInteraction();
+    initShareButtons();
     initCopyButtons();
     initSmoothScroll();
     initHeroParallax();
@@ -607,6 +608,73 @@ function initHeroBackground() {
     }, { passive: true });
 }
 
+
+/* ============================================
+   SHARE & INVITE BUTTONS
+   ============================================ */
+function initShareButtons() {
+    const shareBtn = document.getElementById('shareBtn');
+    const copyLinkBtn = document.getElementById('copyLinkBtn');
+    const confirmation = document.getElementById('inviteConfirmation');
+
+    const pageUrl = window.location.href;
+    const shareTitle = 'Give to Gain — KUHeS Church 2025';
+    const shareText = 'Help create a warm, impactful first experience for students at KUHeS. Give what lifts your heart.';
+
+    function showConfirmation(message) {
+        if (!confirmation) return;
+        confirmation.textContent = message;
+        confirmation.style.opacity = '1';
+        setTimeout(() => {
+            confirmation.style.opacity = '0';
+        }, 3000);
+    }
+
+    // Native Share (works on mobile)
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: shareTitle,
+                        text: shareText,
+                        url: pageUrl
+                    });
+                    showConfirmation('Thank you for sharing! 🌟');
+                } catch (err) {
+                    // User cancelled — do nothing
+                    if (err.name !== 'AbortError') {
+                        fallbackCopy();
+                    }
+                }
+            } else {
+                fallbackCopy();
+            }
+        });
+    }
+
+    // Copy link button
+    if (copyLinkBtn) {
+        copyLinkBtn.addEventListener('click', fallbackCopy);
+    }
+
+    function fallbackCopy() {
+        navigator.clipboard.writeText(pageUrl).then(() => {
+            showConfirmation('Link copied! Share it anywhere ✨');
+        }).catch(() => {
+            // Final fallback
+            const textarea = document.createElement('textarea');
+            textarea.value = pageUrl;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showConfirmation('Link copied! Share it anywhere ✨');
+        });
+    }
+}
 /* ============================================
    KEYBOARD ACCESSIBILITY
    ============================================ */
